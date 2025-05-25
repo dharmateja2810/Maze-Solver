@@ -1,13 +1,215 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from the original HTML */
+:root {
+    --bg-primary: #111827; /* gray-900 */ /* [cite: 1] */
+    --bg-secondary: #1f2937; /* gray-800 */ /* [cite: 2] */
+    --bg-tertiary: #374151; /* gray-700 */ /* [cite: 3] */
+    --bg-navbar: linear-gradient(to right, #1f2937, #111827); /* slate-800 to gray-900 */ /* [cite: 4] */
+    --bg-controls-bar: #1f2937; /* gray-800 */ /* [cite: 5] */
+    
+    --text-primary: #f3f4f6; /* gray-100 */ /* [cite: 6] */
+    --text-secondary: #d1d5db; /* gray-300 */ /* [cite: 7] */
+    --text-muted: #9ca3af; /* gray-400 */ /* [cite: 8] */
+    --text-navbar: #ffffff; /* [cite: 9] */
+    
+    --border-primary: #4b5563; /* gray-600 */ /* [cite: 9] */
+    --border-secondary: #374151; /* gray-700 */ /* [cite: 10] */
+    --border-accent: #ec4899; /* pink-500 */ /* [cite: 11] */
+
+    --btn-primary-bg: #ec4899; /* pink-500 */ /* [cite: 12] */
+    --btn-primary-hover-bg: #db2777; /* pink-600 */ /* [cite: 13] */
+    --btn-secondary-bg: #6366f1; /* indigo-500 */ /* [cite: 14] */
+    --btn-secondary-hover-bg: #4f46e5; /* indigo-600 */ /* [cite: 15] */
+    --btn-danger-bg: #ef4444; /* red-500 */ /* [cite: 16] */
+    --btn-danger-hover-bg: #dc2626; /* red-600 */ /* [cite: 17] */
+
+    --input-bg: #e0e7ff; /* indigo-100 */ /* [cite: 18] */
+    --input-text: #1e1b4b; /* gray-900 */ /* [cite: 19] */
+    --input-border: #4f46e5; /* indigo-600 */ /* [cite: 20] */
+    --input-focus-border: #ec4899;
+    --input-focus-shadow: #fbcfe8;
+
+    --cell-empty-bg: #1f2937; /* [cite: 21] */
+    --cell-empty-hover-bg: #374151; /* [cite: 22] */
+    --cell-wall-bg: #4b5563; /* [cite: 22] */
+    --cell-source-bg: #10b981; /* [cite: 22] */
+    --cell-source-shadow: #34d399; /* [cite: 22] */
+    --cell-target-bg: #f43f5e; /* [cite: 22] */
+    --cell-target-shadow: #fb7185; /* [cite: 22] */
+    --cell-visited-bg: #0e7490; /* cyan-700 */ /* [cite: 22] */
+    --cell-visiting-bg: #0891b2; /* cyan-600 */ /* [cite: 23] */
+    --cell-path-bg: #f59e0b; /* [cite: 24] */
+    --cell-path-shadow: #fbbf24; /* [cite: 24] */
+    --cell-visited-b-bg: #065f46; /* emerald-800 */ /* [cite: 24] */
+    --cell-visiting-b-bg: #047857; /* emerald-700 */ /* [cite: 25] */
+
+    --message-info-bg: rgba(59, 130, 246, 0.5); /* blue-500 opacity 50% */ /* [cite: 26] */
+    --message-info-text: #bfdbfe; /* blue-200 */ /* [cite: 27] */
+    --message-info-border: #3b82f6; /* blue-500 */ /* [cite: 28] */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.light-mode {
+    --bg-primary: #f3f4f6; /* gray-100 */ /* [cite: 29] */
+    --bg-secondary: #ffffff; /* white */ /* [cite: 30] */
+    --bg-tertiary: #e5e7eb; /* gray-200 */ /* [cite: 31] */
+    --bg-navbar: linear-gradient(to right, #e5e7eb, #f3f4f6); /* [cite: 32] */
+    --bg-controls-bar: #ffffff; /* [cite: 32] */
+
+    --text-primary: #1f2937; /* gray-800 */
+    --text-secondary: #374151; /* gray-700 */ /* [cite: 33] */
+    --text-muted: #6b7280; /* gray-500 */ /* [cite: 34] */
+    --text-navbar: #1f2937; /* [cite: 34] */
+
+    --border-primary: #d1d5db; /* gray-300 */ /* [cite: 35] */
+    --border-secondary: #e5e7eb; /* gray-200 */ /* [cite: 36] */
+    --border-accent: #db2777; /* pink-600 */ /* [cite: 37] */
+
+    --btn-primary-bg: #db2777; /* pink-600 */ /* [cite: 38] */
+    --btn-primary-hover-bg: #be185d; /* pink-700 */ /* [cite: 39] */
+    --btn-secondary-bg: #4f46e5; /* indigo-600 */ /* [cite: 40] */
+    --btn-secondary-hover-bg: #4338ca; /* indigo-700 */ /* [cite: 41] */
+    
+    --input-bg: #f3f4f6; /* gray-100 */ /* [cite: 42] */
+    --input-text: #1f2937; /* [cite: 42] */
+    --input-border: #9ca3af; /* gray-400 */ /* [cite: 43] */
+    --input-focus-border: #db2777; /* [cite: 43] */
+    --input-focus-shadow: #fce7f3; /* pink-100 */ /* [cite: 44] */
+
+    --cell-empty-bg: #ffffff; /* [cite: 45] */
+    --cell-empty-hover-bg: #f9fafb; /* gray-50 */ /* [cite: 45] */
+    --cell-wall-bg: #d1d5db; /* gray-300 */ /* [cite: 46] */
+    --cell-source-bg: #059669; /* emerald-600 */ /* [cite: 47] */
+    --cell-target-bg: #e11d48; /* rose-600 */ /* [cite: 48] */
+    --cell-visited-bg: #22d3ee; /* cyan-400 */ /* [cite: 49] */
+    --cell-visiting-bg: #67e8f9; /* cyan-300 */ /* [cite: 50] */
+    --cell-path-bg: #f59e0b; /* amber-500 */ /* [cite: 51] */
+    --cell-visited-b-bg: #34d399; /* emerald-400 */ /* [cite: 52] */
+    --cell-visiting-b-bg: #6ee7b7; /* emerald-300 */ /* [cite: 53] */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* [cite: 54] */
+    overscroll-behavior: none; /* [cite: 55] */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s; /* [cite: 55] */
+}
+
+.maze-grid {
+    display: grid; /* [cite: 57] */
+    border: 1px solid var(--border-primary); /* [cite: 58] */
+    touch-action: none;
+    width: 100%; 
+    height: 100%; /* [cite: 59] */
+}
+.cell {
+    width: 100%; /* [cite: 59] */
+    padding-bottom: 100%; /* [cite: 60] */
+    position: relative;
+    border: 1px solid var(--border-secondary);
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* [cite: 60] */
+}
+
+.cell-empty { background-color: var(--cell-empty-bg); /* [cite: 61] */ }
+.cell-empty:hover { background-color: var(--cell-empty-hover-bg); /* [cite: 62] */ }
+.cell-visited { background-color: var(--cell-visited-bg); opacity: 0.8; /* [cite: 63] */ }
+.cell-visiting { background-color: var(--cell-visiting-bg); opacity: 0.9; /* [cite: 64] */ }
+.cell-path {
+    background-color: var(--cell-path-bg); /* [cite: 65] */
+    box-shadow: 0 0 8px 2px var(--cell-path-shadow); /* [cite: 66] */
+}
+.cell-visited-b { background-color: var(--cell-visited-b-bg); opacity: 0.8; /* [cite: 66] */ }
+.cell-visiting-b { background-color: var(--cell-visiting-b-bg); opacity: 0.9; /* [cite: 67] */ }
+.cell-wall { background-color: var(--cell-wall-bg); /* [cite: 68] */ }
+.cell-source {
+    background-color: var(--cell-source-bg); /* [cite: 69] */
+    box-shadow: 0 0 8px 2px var(--cell-source-shadow); /* [cite: 70] */
+}
+.cell-target {
+    background-color: var(--cell-target-bg); /* [cite: 70] */
+    box-shadow: 0 0 8px 2px var(--cell-target-shadow); /* [cite: 71] */
+}
+
+.mode-radio-label {
+    padding: 0.5rem 0.75rem; /* [cite: 72] */
+    border: 1px solid var(--border-primary); /* [cite: 72] */
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    text-align: center;
+    font-size: 0.875rem; /* [cite: 73] */
+    background-color: var(--bg-tertiary); /* [cite: 73] */
+    color: var(--text-secondary); /* [cite: 73] */
+}
+.mode-radio-label:hover { background-color: var(--border-primary); /* [cite: 74] */ }
+input[type="radio"]:checked + .mode-radio-label {
+    background-color: var(--btn-primary-bg); /* [cite: 74] */
+    color: white; /* [cite: 75] */
+    border-color: var(--btn-primary-bg); /* [cite: 75] */
+}
+input[type="radio"] { display: none; /* [cite: 76] */ }
+
+.control-button {
+    padding: 0.5rem 1rem; /* [cite: 77] */
+    border-radius: 0.375rem; font-weight: 500; /* [cite: 77] */
+    font-size: 0.875rem; color: white;
+    transition: background-color 0.2s, transform 0.15s; transform-origin: center; /* [cite: 78] */
+}
+.control-button:hover { transform: scale(1.03); /* [cite: 79] */ }
+.control-button:active { transform: scale(0.98); /* [cite: 80] */ }
+
+.btn-primary { background-color: var(--btn-primary-bg); /* [cite: 81] */ }
+.btn-primary:hover { background-color: var(--btn-primary-hover-bg); /* [cite: 82] */ }
+.btn-secondary { background-color: var(--btn-secondary-bg); color: white; /* [cite: 83] */ }
+.btn-secondary:hover { background-color: var(--btn-secondary-hover-bg); /* [cite: 84] */ }
+.btn-danger { background-color: var(--btn-danger-bg); /* [cite: 85] */ }
+.btn-danger:hover { background-color: var(--btn-danger-hover-bg); /* [cite: 86] */ }
+
+.nav-input, .nav-select {
+    padding: 0.5rem; /* [cite: 87] */
+    border-radius: 0.375rem; border: 1px solid var(--input-border); /* [cite: 87] */
+    font-size: 0.875rem; background-color: var(--input-bg); color: var(--input-text); /* [cite: 88] */
+}
+.nav-input:focus, .nav-select:focus {
+    outline: none; /* [cite: 89] */
+    border-color: var(--input-focus-border); /* [cite: 89] */
+    box-shadow: 0 0 0 2px var(--input-focus-shadow); /* [cite: 89] */
+}
+.nav-label { font-size: 0.875rem; /* [cite: 90] */
+font-weight: 500; color: var(--text-navbar); } /* [cite: 90] */
+#animationSpeed { accent-color: var(--btn-primary-bg); /* [cite: 91] */ }
+.theme-toggle-btn {
+    background: none; /* [cite: 92] */
+    border: none; color: var(--text-navbar); cursor: pointer; /* [cite: 92] */
+    padding: 0.5rem; border-radius: 50%; /* [cite: 93] */
+}
+.theme-toggle-btn:hover { background-color: rgba(255,255,255,0.1); /* [cite: 94] */ }
+.light-mode .theme-toggle-btn:hover { background-color: rgba(0,0,0,0.1); /* [cite: 95] */ }
+
+#messageArea {
+    background-color: var(--message-info-bg); /* [cite: 96] */
+    color: var(--message-info-text); /* [cite: 96] */
+    border-left-color: var(--message-info-border); /* [cite: 96] */
+}
+.message-success {
+    background-color: rgba(22, 163, 74, 0.5) !important; /* green-600 */ /* [cite: 97] */
+    color: #a7f3d0 !important; /* green-200 */ /* [cite: 98] */
+    border-left-color: #16a34a !important; /* green-600 */ /* [cite: 99] */
+}
+.message-error {
+    background-color: rgba(220, 38, 38, 0.5) !important; /* red-600 */ /* [cite: 100] */
+    color: #fecaca !important; /* red-200 */ /* [cite: 101] */
+    border-left-color: #dc2626 !important; /* red-600 */ /* [cite: 102] */
+}
+.message-warning {
+    background-color: rgba(245, 158, 11, 0.5) !important; /* amber-500 */ /* [cite: 103] */
+    color: #fef3c7 !important; /* amber-100 */ /* [cite: 104] */
+    border-left-color: #f59e0b !important; /* amber-500 */ /* [cite: 105] */
 }
