@@ -85,13 +85,6 @@ A React-based web application for generating, customizing, and solving mazes int
 - **JavaScript (ES6+)**: Core logic for maze generation and pathfinding.
 - **Tailwind CSS**: Styling for responsive and themed UI (assumed based on class names).
 - **HTML5/CSS3**: Structure and styling of the application.
-
-## Notes for Developers
-
-- **Production Optimization**: The `MazeGrid` component has been optimized by removing console logs for production use.
-- **Grid Constraints**: Grid sizes are capped at 5x5 to 101x101 to ensure performance and usability.
-- **Animation Delay**: The animation delay slider ranges from 0 (instant) to 200ms per step. Maze generation uses a fraction (10%) of this delay for smoother visuals.
-- **Error Handling**: The app prevents interactions during maze generation or solving to avoid race conditions.
-
+- 
 ## Contributing
 Contributions are Welcome!
