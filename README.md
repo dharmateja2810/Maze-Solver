@@ -84,6 +84,6 @@ A React-based web application for generating, customizing, and solving mazes int
 - **JavaScript (ES6+)**: Core logic for maze generation and pathfinding.
 - **Tailwind CSS**: Styling for responsive and themed UI (assumed based on class names).
 - **HTML5/CSS3**: Structure and styling of the application.
-- 
+
 ## Contributing
 Contributions are Welcome!
