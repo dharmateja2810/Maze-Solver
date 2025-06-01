@@ -29,8 +29,8 @@ A React-based web application for generating, customizing, and solving mazes int
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/maze-solver.git
-   cd maze-solver
+   git clone https://github.com/dharmateja28/Maze-Solver.git
+   cd Maze-Solver
    ```
 
 2. **Install Dependencies**:
@@ -78,9 +78,8 @@ A React-based web application for generating, customizing, and solving mazes int
    - **Clear Path**: Remove visited cells and paths, keeping walls, source, and target.
    - **Clear All**: Reset the grid to empty, removing all walls, source, and target.
    - **Toggle Theme**: Switch between light and dark modes via the navbar.
-
+     
 ## Technologies Used
-
 - **React**: Front-end framework for building the UI.
 - **JavaScript (ES6+)**: Core logic for maze generation and pathfinding.
 - **Tailwind CSS**: Styling for responsive and themed UI (assumed based on class names).
